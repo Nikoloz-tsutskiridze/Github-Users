@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { GithubContext } from "../context/context";
+import { ExampleChart, Pie3D } from "./Charts";
 
 const Wrapper = styled.div`
   display: grid;
@@ -26,7 +28,39 @@ const Wrapper = styled.div`
 `;
 
 function Repos() {
-  return <h2>repos component</h2>;
+  const { repos } = useContext(GithubContext);
+
+  let languages = repos.reduce((total, item) => {
+    const { language } = item;
+
+    if (!language) return total;
+
+    if (!total[language]) {
+      total[language] = { label: language, value: 1 };
+    } else {
+      total[language] = {
+        ...total[language],
+        value: total[language].value + 1,
+      };
+    }
+
+    return total;
+  }, {});
+
+  languages = Object.values(languages)
+    .sort((a, b) => {
+      return b.value - a.value;
+    })
+    .slice(0, 5);
+
+  return (
+    <section className="section">
+      <Wrapper className="section-center">
+        {/* <ExampleChart data={chartData} /> */}
+        <Pie3D data={languages} />
+      </Wrapper>
+    </section>
+  );
 }
 
 export default Repos;

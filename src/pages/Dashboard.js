@@ -8,8 +8,8 @@ import Repos from "../components/Repos";
 function Dashboard() {
   return (
     <main>
-      <Navbar></Navbar>
-      <Search />
+      {/* <Navbar></Navbar> */}
+      {/* <Search /> */}
       <Info />
       <User />
       <Repos />

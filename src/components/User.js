@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Card from "./Card";
+import Followers from "./Followers";
 
 const Wrapper = styled.div`
   padding-top: 2rem;
@@ -11,7 +13,14 @@ const Wrapper = styled.div`
 `;
 
 function User() {
-  return <h2>search component</h2>;
+  return (
+    <section className="section">
+      <Wrapper className="section-center">
+        <Card></Card>
+        <Followers></Followers>
+      </Wrapper>
+    </section>
+  );
 }
 
 export default User;
