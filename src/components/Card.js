@@ -108,7 +108,7 @@ function Card() {
         <img src={avatar_url} alt={name} />
         <div>
           <h4>{name || "Nikoloz-tsutskiridze"}</h4>
-          <p>@{twitter_username || "Tsutskiridze11"}</p>
+          <p>@{twitter_username}</p>
         </div>
         <a href={html_url}>Follow</a>
       </header>
@@ -118,7 +118,7 @@ function Card() {
           <MdBusiness></MdBusiness> {company}
         </p>
         <p>
-          <MdLocationOn></MdLocationOn> {location || "Tbilisi, Georgia"}
+          <MdLocationOn></MdLocationOn> {location}
         </p>
         <a href={`https://${blog}`}>
           <MdLink></MdLink>
